@@ -1,0 +1,34 @@
+'''If an element in the matrix is 0, set its entire row and column to 0.
+You must do this in-place (without creating a new matrix).
+Example:
+Input:
+1 1 1
+1 0 1
+1 1 1
+Output:
+1 0 1
+0 0 0
+1 0 1'''
+row=3
+col=3
+matrix=[]
+for i in range(row):
+    arr=list(map(int,input().split()))
+    matrix.append(arr)
+rows=len(matrix)
+cols=len(matrix[0])
+zero_row=set()
+zero_col=set()
+for i in range(rows):
+    for j in range(cols):
+        if matrix[i][j]==0:
+            zero_row.add(i)
+            zero_col.add(j)
+for i in zero_row:
+    for j in range(cols):
+        matrix[i][j]=0
+for j in zero_col:
+    for i in range(rows):
+        matrix[i][j]=0
+for l in matrix:
+    print(l)
